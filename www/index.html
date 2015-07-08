@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/af.ui.min.css">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/icons.min.css">
+        <title>Blank App Designer Cordova Web App Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <!--            
+            You may substitute jQuery for the App Framework selector library.
+            See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+        -->
+        <script type="application/javascript" src="app_framework/2.1/appframework.js"></script>
+        <script type="application/javascript" src="app_framework/2.1/appframework.ui.js" data-ver="1"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="js/validarCampos.js"></script>
+        <script type="application/javascript" src="js/loguear.js"></script>
+        <script type="application/javascript" src="js/estudiante.js"></script>
+        <script type="application/javascript" src="js/administrador.js"></script>
+        <script type="application/javascript" src="js/nutricionista.js"></script>
+
+    </head>
+
+    <body id="afui">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <header class="wrapping-col wrap-element uib_w_1" data-uib="app_framework/header" data-ver="2" id="af-header-10">
+            <h1>LOGIN</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_7 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-0"><a class="button backButton">Back</a>
+            <h1>Crear Usuario</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_17 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-1"><a class="button backButton">Back</a>
+            <h1>Estudiante</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_24 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-2"><a class="button backButton">Back</a>
+            <h1>Administrador</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_31 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-3"><a class="button backButton">Back</a>
+            <h1>Marcar Consumo</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_38 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-4"><a class="button backButton">Back</a>
+            <h1>Nutricionista</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_47 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-5"><a class="button backButton">Back</a>
+            <h1>Menu A Preparar</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_51 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-6"><a class="button backButton">Back</a>
+            <h1>Mapa de estudiantes</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_57 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-7"><a class="button backButton">Back</a>
+            <h1>Menu del dia</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_63 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-8"><a class="button backButton">Back</a>
+            <h1>Registro de Estudiantes</h1>
+        </header>
+        <div class="uwrap" id="content">
+            <div class="upage vertical-col panel" id="mainpage" data-header="af-header-10" data-footer="af-footer-10">
+                <div class="table-thing with-label widget uib_w_5 d-margins" data-uib="app_framework/select" data-ver="1">
+                    <label class="narrow-control label-inline" for="idPerfil">Perfil</label>
+                    <select class="wide-control" id="idPerfil" onchange="hola();">
+                        <option>ESTUDIANTE</option>
+                        <option>ADMINISTRADOR</option>
+                        <option>NUTRICIONISTA</option>
+                    </select>
+                </div>
+                <div class="table-thing with-label widget uib_w_3 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idCodigo" id="labelCodigo">Codigo</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idCodigo" value="1002620122">
+                </div>
+                <div class="table-thing with-label widget uib_w_4 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idPass">Contraseña</label>
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idPass" value="kevin">
+                </div><a class="button widget uib_w_6 d-margins" data-uib="app_framework/button" data-ver="1" id="idAceptar">Aceptar</a>
+                <h4>Registrese </h4><a href="#idPageCrearCuenta">Aqui</a>
+
+            </div>
+            <div class="upage vertical-col panel" id="idPageCrearCuenta" data-header="af-header-0" data-footer="af-footer-0">
+                <div class="table-thing with-label widget uib_w_9 d-margins" data-uib="app_framework/select" data-ver="1">
+                    <label class="narrow-control label-inline" for="idPerfCCuenta">Perfil</label>
+                    <select class="wide-control" id="idPerfCCuenta">
+                        <option>ESTUDIANTE</option>
+                        <option>ADMINISTRADOR</option>
+                        <option>NUTRICIONISTA</option>
+                    </select>
+                </div>
+                <div class="table-thing with-label widget uib_w_10 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="iddniCCuenta">DNI</label>
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="iddniCCuenta">
+                </div>
+                <div class="table-thing with-label widget uib_w_11 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idNomCCuenta">Nombres</label>
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idNomCCuenta">
+                </div>
+                <div class="table-thing with-label widget uib_w_12 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idAppelCCuenta">Apellidos</label>
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idAppelCCuenta">
+                </div>
+                <div class="table-thing with-label widget uib_w_13 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idPassCCuenta">Contraseña</label>
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idPassCCuenta">
+                </div>
+                <div class="table-thing with-label widget uib_w_14 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idCodCCuenta">Codigo</label>
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idCodCCuenta">
+                </div>
+                <div class="table-thing with-label widget uib_w_15 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idCarrCCuenta">Carrera</label>
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idCarrCCuenta">
+                </div><a class="button widget uib_w_16 d-margins" data-uib="app_framework/button" data-ver="1" id="idAceptarCCuenta">Aceptar</a>
+            </div>
+            <div class="upage vertical-col panel" id="idPageEstudiante" data-header="af-header-1" data-footer="af-footer-1">
+                <div class="table-thing with-label widget uib_w_19 d-margins" data-uib="app_framework/radio_button_group" data-ver="1" data-child-name="af-group-0" id="idPageEstudiante_GrupoOpciones">
+
+                    <div class="wide-control">
+                        <div class="widget uib_w_20" data-uib="app_framework/radio_button" data-ver="1">
+                            <input type="radio" id="idVerMenu" name="af-group-0">
+                            <label class="content-box" for="idVerMenu">Ver Menu</label>
+                        </div>
+                        <div class="widget uib_w_21" data-uib="app_framework/radio_button" data-ver="1">
+                            <input type="radio" id="idVerEstudiante" name="af-group-0">
+                            <label class="content-box" for="idVerEstudiante">Ver Estudiantes</label>
+                        </div>
+                    </div>
+                </div><a class="button widget uib_w_23 d-margins" data-uib="app_framework/button" data-ver="1" id="idAceptarEstudiante">Aceptar</a>
+            </div>
+            <div class="upage vertical-col panel" id="idPageAdministardor" data-header="af-header-2" data-footer="af-footer-2">
+                <div class="table-thing with-label widget uib_w_26 d-margins" data-uib="app_framework/radio_button_group" data-ver="1" data-child-name="af-group-1" id="idOpcionesAdministrador">
+
+                    <div class="wide-control">
+                        <div class="widget uib_w_27" data-uib="app_framework/radio_button" data-ver="1">
+                            <input type="radio" id="idAMarcConsumo" name="af-group-1">
+                            <label class="content-box" for="idAMarcConsumo">Marcar Consumo</label>
+                        </div>
+                        <div class="widget uib_w_28" data-uib="app_framework/radio_button" data-ver="1">
+                            <input type="radio" id="idAMenuPrep" name="af-group-1">
+                            <label class="content-box" for="idAMenuPrep">Menu a Preparar</label>
+                        </div>
+                        <div class="widget uib_w_29" data-uib="app_framework/radio_button" data-ver="1">
+                            <input type="radio" id="idAverEstudiante" name="af-group-1">
+                            <label class="content-box" for="idAverEstudiante">Ver Estudiantes</label>
+                        </div>
+                    </div>
+                </div>
+                <a class="button widget uib_w_69 d-margins" data-uib="app_framework/button" data-ver="1" id="idAAceptar">Aceptar</a>
+            </div>
+            <div class="upage vertical-col panel" id="idPageMarcarConsumo" data-header="af-header-3" data-footer="af-footer-3">
+                <div class="table-thing with-label widget uib_w_33 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idMCCodigo">Codigo</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idMCCodigo">
+                </div><a class="button widget uib_w_34 d-margins" data-uib="app_framework/button" data-ver="1" id="idMCBuscar">Buscar</a>
+
+                <ul class="list widget uib_w_71 d-margins" data-uib="app_framework/listview" data-ver="1" id="idMCBALista">
+                    <li class="widget uib_w_72" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
+                    </li>
+                    <li class="widget uib_w_73" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
+                    </li>
+                    <li class="widget uib_w_74" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
+                    </li>
+                </ul>
+                <div class="button-grouped flex widget uib_w_35 d-margins" data-uib="app_framework/button_group" data-ver="1"><a class="button widget uib_w_36" data-uib="app_framework/button" data-ver="1" style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(102, 102, 102); border-top-left-radius: 6px; border-bottom-left-radius: 6px;"
+                    id="idMCDesayuno">Desayuno</a><a class="button widget uib_w_37" data-uib="app_framework/button" data-ver="1" id="idMCCaballero">H. Caballeros</a>
+                </div>
+            </div>
+            <div class="upage vertical-col panel" id="idPageNutricionista" data-header="af-header-4" data-footer="af-footer-4">
+                <div class="table-thing with-label widget uib_w_40 d-margins" data-uib="app_framework/radio_button_group" data-ver="1" data-child-name="af-group-2" id="idNutricionistaOpciones">
+
+                    <div class="wide-control">
+                        <div class="widget uib_w_41" data-uib="app_framework/radio_button" data-ver="1">
+                            <input type="radio" id="idNLlenarMenu" name="af-group-2">
+                            <label class="content-box" for="idNLlenarMenu">LLenar Menu</label>
+                        </div>
+                        <div class="widget uib_w_42" data-uib="app_framework/radio_button" data-ver="1">
+                            <input type="radio" id="idNVerRegistro" name="af-group-2">
+                            <label class="content-box" for="idNVerRegistro">Ver Registros</label>
+                        </div>
+                        <div class="widget uib_w_43" data-uib="app_framework/radio_button" data-ver="1">
+                            <input type="radio" id="idNVerEstudiantes" name="af-group-2">
+                            <label class="content-box" for="idNVerEstudiantes">Ver Estudiantes</label>
+                        </div>
+                    </div>
+                </div><a class="button widget uib_w_44 d-margins" data-uib="app_framework/button" data-ver="1" id="idNAceptar">Aceptar</a>
+            </div>
+            <div class="upage vertical-col panel" id="idPageMenuPreparar" data-header="af-header-5" data-footer="af-footer-5">
+                <div class="table-thing with-label widget uib_w_45 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idMPFecha">Fecha</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idMPFecha">
+                </div>
+                <div class="table-thing with-label widget uib_w_46 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idMPDesayuno">Desayuno</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idMPDesayuno">
+                </div>
+                <div class="table-thing with-label widget uib_w_49 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idMPAlmuerzo">Almuerzo</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idMPAlmuerzo">
+                </div><a class="button widget uib_w_50 d-margins" data-uib="app_framework/button" data-ver="1" id="idMPAgregar">Agregar</a>
+            </div>
+            <div class="upage vertical-col panel" id="idPageVerEstudiantes" data-header="af-header-6" data-footer="af-footer-6">
+                <div class="widget uib_w_70 scale-image d-margins" data-uib="media/img" data-ver="0">
+                    <figure class="figure-align">
+                        <img src="images/google-maps.png">
+                    </figure>
+                </div>
+            </div>
+            <div class="upage vertical-col panel" id="idPageMenu" data-header="af-header-7" data-footer="af-footer-7">
+                <ul class="list widget uib_w_59 d-margins" data-uib="app_framework/listview" data-ver="1" id="idMPLista">
+                    <li class="widget uib_w_60" data-uib="app_framework/listitem" data-ver="1"><a>Desayuno: leche</a>
+                    </li>
+                    <li class="widget uib_w_61" data-uib="app_framework/listitem" data-ver="1"><a>Almuerzo: ceviche</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="upage vertical-col panel" id="idPageRegistroEstudiantes" data-header="af-header-8" data-footer="af-footer-8">
+                <ul class="list widget uib_w_65 d-margins" data-uib="app_framework/listview" data-ver="1" id="idNREstudiantes">
+                    <li class="widget uib_w_66" data-uib="app_framework/listitem" data-ver="1"><a>Etsun Ortiz Guillen</a>
+                    </li>
+                    <li class="widget uib_w_67" data-uib="app_framework/listitem" data-ver="1"><a>Kevin Ortiz Guillen</a>
+                    </li>
+                    <li class="widget uib_w_68" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer class="wrap-element uib_w_64" data-uib="app_framework/footer" data-ver="1" id="af-footer-8"></footer>
+        <footer class="wrap-element uib_w_58" data-uib="app_framework/footer" data-ver="1" id="af-footer-7"></footer>
+        <footer class="wrap-element uib_w_52" data-uib="app_framework/footer" data-ver="1" id="af-footer-6"></footer>
+        <footer class="wrap-element uib_w_48" data-uib="app_framework/footer" data-ver="1" id="af-footer-5"></footer>
+        <footer class="wrap-element uib_w_39" data-uib="app_framework/footer" data-ver="1" id="af-footer-4"></footer>
+        <footer class="wrap-element uib_w_32" data-uib="app_framework/footer" data-ver="1" id="af-footer-3"></footer>
+        <footer class="wrap-element uib_w_25" data-uib="app_framework/footer" data-ver="1" id="af-footer-2"></footer>
+        <footer class="wrap-element uib_w_18" data-uib="app_framework/footer" data-ver="1" id="af-footer-1"></footer>
+        <footer class="wrap-element uib_w_8" data-uib="app_framework/footer" data-ver="1" id="af-footer-0"></footer>
+        <footer class="wrap-element uib_w_2" data-uib="app_framework/footer" data-ver="1" id="af-footer-10"></footer>
+    </body>
+
+</html>
