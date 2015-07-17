@@ -55,7 +55,7 @@
   * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
 -->
         <script src="cordova.js" id="xdkJScordova_"></script>
-
+        <script src="http://192.168.195.1:9095/socket.io/socket.io.js"></script>
         <script src="js/app.js"></script>
         <!-- for your event code, see README and file comments for details -->
         <script src="js/init-app.js"></script>
@@ -74,6 +74,7 @@
         <script type="application/javascript" src="js/estudiante.js"></script>
         <script type="application/javascript" src="js/administrador.js"></script>
         <script type="application/javascript" src="js/nutricionista.js"></script>
+        <script type="application/javascript" src="js/mapaEstudiante.js"></script>
 
     </head>
 
@@ -262,8 +263,34 @@
                 <div class="widget uib_w_70 scale-image d-margins" data-uib="media/img" data-ver="0">
                     <figure class="figure-align">
                         <img src="images/google-maps.png">
+                        <figcaption data-position="bottom"></figcaption>
                     </figure>
                 </div>
+                <div class="widget uib_w_77 d-margins" data-uib="media/text" data-ver="0" id="idEstado">
+                    <div class="widget-container left-receptacle"></div>
+                    <div class="widget-container right-receptacle"></div>
+                    <div>
+                        <p>esta0</p>
+                    </div>
+                </div>
+                <div class="widget uib_w_78 d-margins" data-uib="media/text" data-ver="0" id="idSocket">
+                    <div class="widget-container left-receptacle"></div>
+                    <div class="widget-container right-receptacle"></div>
+                    <div>
+                        <p>socket</p>
+                    </div>
+                </div>
+                <div class="table-thing with-label widget uib_w_75 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idLat">lat</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" value="51.00541" id="idLat">
+                </div>
+                <div class="table-thing with-label widget uib_w_76 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idLon">Input</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" value="-1.15422" id="idLon">
+                </div>
+                <a onclick="enviarPosicion();" class="button widget uib_w_79 d-margins" data-uib="app_framework/button" data-ver="1" id="idMenviar">Enviar</a>
             </div>
             <div class="upage vertical-col panel" id="idPageMenu" data-header="af-header-7" data-footer="af-footer-7">
                 <ul class="list widget uib_w_59 d-margins" data-uib="app_framework/listview" data-ver="1" id="idMPLista">

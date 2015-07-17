@@ -15,6 +15,7 @@
     $(document).on("click", "#idAceptar", function(evt)
     {
         /* your code goes here */ 
+        
        var perfil=$("#idPerfil").val();
        var codigo=$("#idCodigo").val();
        var contra=$("#idPass").val();
@@ -29,7 +30,7 @@
         /* button  #idAceptarEstudiante */
     $(document).on("click", "#idAceptarEstudiante", function(evt)
     {
-        /* your code goes here */ 
+        /* your code goes here */        
         var fecha=Date();
         var param={};
           param.estado=1;
@@ -114,6 +115,13 @@
           param.dasayuno=desayuno;
           param.almuerzo=almuerzo;
         NUTRICIONISTA.llenarMenu(param);
+    });
+    
+        /* button  #idMenviar */
+    $(document).on("click", "#idMenviar", function(evt)
+    {
+        /* your code goes here */ 
+        enviarPosicion();
     });
     
     }

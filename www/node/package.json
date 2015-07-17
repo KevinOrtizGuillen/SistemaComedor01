@@ -1,0 +1,11 @@
+{
+  "name": "SistemaComedor",
+  "version": "0.0.3",
+  "dependencies": {
+    "express": "4.8.2",
+    "body-parser": "1.12.3",
+    "socket.io": "1.0.6",
+    "request": "2.54.0",
+    "moment": "2.10.2",
+  }
+}

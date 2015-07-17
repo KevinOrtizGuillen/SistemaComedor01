@@ -16,6 +16,39 @@ app.use(AllowCroosDomain);
 
 var server=app.listen(PORT,IPADDRESS);
 console.log('Escuchando en:  '+IPADDRESS+':'+PORT);
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////socketio//////////////
+var MonitorID=null;
+var io=require('socket.io').listen(server);
+io.on('connection',function(socket){
+      console.log('Usuario conectado: '+socket.id);
+      //
+      socket.on("loginMonitor",function(data,response){
+        if(data.monitor="monitor"){
+            MonitorID=socket.id;
+            var info={id:socket.id};
+            response(info);
+        }
+      });
+      socket.on("loginEstudiante",function(data, response){
+        var info={id:socket.id};
+        response(info);
+      });
+      socket.on("posicionEstudiante",function(data){
+        console.log(data);
+        if(MonitorID!=null)
+            io.sockets.connected[MonitorID].emit('monitorPrincipal',data);
+      });
+      socket.on("disconnect",function(){
+        console.log('Usuario desconectado: '+socket.id);
+      });
+
+});
+
+
+
+
+/////////////////////socketio///////////////
 //servicios del SistemaComedor//
 app.post('/getLogin', function(req, res){
   var dato=req.param('data');
