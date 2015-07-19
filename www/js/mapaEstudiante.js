@@ -2,6 +2,7 @@ var SOCKET=null;
 var MAP=null;
 var MARCADORES=[];
 var IDSOCKET_CLIE=null;
+var nombreUsuario=null;
 /*funcion conectarse*/
 function conectarse(){
 	SOCKET=io.connect("http://192.168.195.1:9095");
@@ -10,7 +11,8 @@ function conectarse(){
 		document.getElementById("idEstado").innerHTML="conectado..";
 		var datos={};
 
-		datos.id=document.getElementById("idIdenficador").value;
+		datos.id=document.getElementById("idCodigo").value;
+		nombreUsuario=document.getElementById("idCodigo").value;
 
 		SOCKET.emit("loginCliente",datos,function(data){
 
@@ -22,17 +24,17 @@ function conectarse(){
 /* funcion que nos permite eliminar el socket desconectado*/
 SOCKET.on("disconnet",function(){
 	document.getElementById("idEstado").innerHTML="desconectado...";
-    eliminarMarcadores();	
+   var index=buscar(data);
+   if(index!==-1){
+		removerPosicion(index);
+	}	
 });
-    iniciarMapa();
+iniciarMapa();
 /*escuchamos las posiciones de los demas clientes al igual
 que el monitor oprincipal*/
-
 SOCKET.on("monitoriarClientes",function(data){	
 	 console.log(data);
-	 //
-	 alert('si lleega: '+data.lon);
-	 //
+	alert('posicion: '+data.lon);
 	   var index=buscar(data);
 	   if(index===-1){
 	   	nuevoPosicion(data);
@@ -43,23 +45,21 @@ SOCKET.on("monitoriarClientes",function(data){
 /*cuando un cliente monitoreado se desconecta*/
 SOCKET.on("MonitorCDesconectado",function(data){
 	console.log(data);
-	//alert('usuario desconectado'+data.id);
+	alert('usuario desconectado'+data.id);
 	var index=buscar(data);
 	if(index!==-1){
 		removerPosicion(index);
 	}
 });
-
 /*empex¿zamos a inicializar la mapa*/
 
-
-} 
+}
 /*AQUI DAMOS LOS SERVICIOS QUE NO PERMITIRA ENVIAR DATOS A TODOS LOS CLIENTES*/
 function enviarPosicion(){
 	var data={};
 		data.lat=document.getElementById("idLat").value;//51.508742;
 		data.lon=document.getElementById("idLon").value;//-0.120850;
-		data.id=IDSOCKET_CLIE;
+		data.id=nombreUsuario;
 		//SOCKET.broadcast.emit("posicionCliente",data);
 		SOCKET.emit("posicionCliente",data);
 
@@ -79,7 +79,8 @@ function enviarPosicion(){
 		var index=-1;
 		var n=MARCADORES.length;
 	   for(var i=0;i<n;i++){
-	   	 if(MARCADORES[i].getId()==data){
+	   	//alert('metodo buscar marcadores:'+MARCADORES[i].getId());
+	   	 if(MARCADORES[i].getId()===data.id){
 	   	 	index=i;
 	   	 	break;
 	   	 }

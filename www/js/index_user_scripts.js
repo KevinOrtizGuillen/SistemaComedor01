@@ -22,7 +22,7 @@
        	    var param={};
        	         param.perfil=perfil;
        	         param.codigo=codigo;
-       	         param.contrasena=contra;
+       	         param.contrasena=contra;        
        	         LOGUEAR.loguearUsuario(param);
         
     });
@@ -123,13 +123,7 @@
         /* your code goes here */ 
         enviarPosicion();
     });
-    
-        /* button  #idEnviarIdentificador */
-    $(document).on("click", "#idEnviarIdentificador", function(evt)
-    {
-        /* your code goes here */ 
-        conectarse();
-    });
+  
     
     }
  document.addEventListener("app.Ready", register_event_handlers, false);

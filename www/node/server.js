@@ -93,6 +93,19 @@ app.post('/getLogin', function(req, res){
    else if(dato.perfil==='NUTRICIONISTA' && dato.codigo==='71861477'&& dato.contrasena=='kevin')
     {
     		  msn.estado=3;    	
+    } 
+    //otro user
+    else if(dato.perfil==='ADMINISTRADOR'&& dato.codigo==='47508449'&& dato.contrasena==='Etsun'){
+        msn.estado=2;
+    }
+    else if(dato.perfil==='ESTUDIANTE' && dato.codigo==='1003720122'&& dato.contrasena==='Etsun')
+    {
+           msn.estado=1;               
+    }
+   
+   else if(dato.perfil==='NUTRICIONISTA' && dato.codigo==='47508449'&& dato.contrasena=='Etsun')
+    {
+              msn.estado=3;     
     }else{
     	 msn.estado=0;
     }

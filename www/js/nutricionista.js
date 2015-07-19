@@ -21,6 +21,7 @@ var NUTRICIONISTA=(function(){
         else if(opciones==='idNVerEstudiantes'){
             //
             $("#irNVerEstudiante").click();
+            conectarse();
         }
     };
     my.llenarMenu=function(param){       

@@ -17,6 +17,7 @@ var ADMINISTRADOR=(function(){
            ////
        }else if(opciones==='idAverEstudiante'){
         $("#irAverEstudiante").click();
+        conectarse();
            ///
        }
 	};

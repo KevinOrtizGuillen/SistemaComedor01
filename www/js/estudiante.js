@@ -9,7 +9,7 @@ var ESTUDIANTE=(function(){
     my.irServicios=function(param){
         var opciones=$("#idPageEstudiante_GrupoOpciones :checked")[0].id;
           if(opciones=="idVerMenu"){
-            $("#irVERmenu").click(); 
+            $("#irVERmenu").click();             
                $.ajax({
                  type:"POST",
                  url:"http://192.168.195.1:9095/getMenuDelDia",
@@ -30,7 +30,7 @@ var ESTUDIANTE=(function(){
       });
             }else{
             $("#irVERmapa").click();
-             
+             conectarse();
             }     
     };  
    //////////////
