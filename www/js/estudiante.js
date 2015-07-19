@@ -30,7 +30,7 @@ var ESTUDIANTE=(function(){
       });
             }else{
             $("#irVERmapa").click();
-             conectarse();
+             
             }     
     };  
    //////////////

@@ -17,36 +17,61 @@ app.use(AllowCroosDomain);
 var server=app.listen(PORT,IPADDRESS);
 console.log('Escuchando en:  '+IPADDRESS+':'+PORT);
 //////////////////////////////////////////////////////////////////////////////
-//////////////////////socketio//////////////
-var MonitorID=null;
+// SOCKET IO//////////////////
+var CLIENTES=[];
 var io=require('socket.io').listen(server);
 io.on('connection',function(socket){
-      console.log('Usuario conectado: '+socket.id);
-      //
-      socket.on("loginMonitor",function(data,response){
-        if(data.monitor="monitor"){
-            MonitorID=socket.id;
-            var info={id:socket.id};
-            response(info);
-        }
-      });
-      socket.on("loginEstudiante",function(data, response){
-        var info={id:socket.id};
-        response(info);
-      });
-      socket.on("posicionEstudiante",function(data){
+    console.log('User id: '+socket.id);
+    /*Servicio de loguearcliente me devuelve los valors idusuario,estado,idsocket*/
+    socket.on("loginCliente", function(data,response){
+    	console.log(data);
+    	var index=buscar(data);
+    	if(index===-1){
+    		CLIENTES.push({id:data.id,estado:1,socket_id:socket.id});
+    		response({id:data.id,estado:1,socket_id:socket.id});
+    	}else{
+    		response({id:null,estado:0,socket_id:null});
+    	}
+    });
+    /*socket escuchar posiciones de los clientes*/
+    socket.on("posicionCliente",function(data){
         console.log(data);
-        if(MonitorID!=null)
-            io.sockets.connected[MonitorID].emit('monitorPrincipal',data);
-      });
-      socket.on("disconnect",function(){
-        console.log('Usuario desconectado: '+socket.id);
-      });
+    	socket.broadcast.emit("monitoriarClientes",data);
+    	socket.emit("monitoriarClientes",data);
+    });
+    /*cuando se desconecta un cliente*/
+    socket.on("disconnect", function(){
+    	console.log('usuario desconectado: '+socket.id);
+	
+    	var n=CLIENTES.length;
+    	for(var i=0;i<n;i++){
+            	console.log('hasta aqui');
+    		if(CLIENTES[i].socket_id===socket.id){
+                	console.log('hasta aqui 1');
+    			socket.broadcast.emit("MonitorCDesconectado",CLIENTES[i]);    		    
+                	socket.emit("MonitorCDesconectado",CLIENTES[i]);
+			
+			    CLIENTES.splice(i,1);
+    			break;		     		
+            	}
+		//CLIENTES.splice(i,1);//ESTAS ELIMINANDO  CLIENTES !!!!!!
+    		//break;		
+    		
+    	}
+    });
 
 });
-
-
-
+function buscar(data){
+	var index=-1;
+	var n=CLIENTES.length;
+	for(var i=0;i<n;i++){
+		if(CLIENTES[i].id===data.id){
+			index=i;
+			break;
+		}
+	}
+	return index;
+}
 
 /////////////////////socketio///////////////
 //servicios del SistemaComedor//

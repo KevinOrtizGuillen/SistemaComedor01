@@ -56,6 +56,8 @@
 -->
         <script src="cordova.js" id="xdkJScordova_"></script>
         <script src="http://192.168.195.1:9095/socket.io/socket.io.js"></script>
+         <script type="application/javascript" src="js/marker.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
         <script src="js/app.js"></script>
         <!-- for your event code, see README and file comments for details -->
         <script src="js/init-app.js"></script>
@@ -260,12 +262,13 @@
                 </div><a class="button widget uib_w_50 d-margins" data-uib="app_framework/button" data-ver="1" id="idMPAgregar">Agregar</a>
             </div>
             <div class="upage vertical-col panel" id="idPageVerEstudiantes" data-header="af-header-6" data-footer="af-footer-6">
-                <div class="widget uib_w_70 scale-image d-margins" data-uib="media/img" data-ver="0">
-                    <figure class="figure-align">
+               <div id="idGoogleMap" style="width:100%;height:380px;"></div>
+                 <!--<div id="idGoogleMap"  width="150px" heigh="200px">mapa
+class="widget uib_w_70 scale-image d-margins" data-uib="media/img" data-ver="0"  <figure class="figure-align">
                         <img src="images/google-maps.png">
                         <figcaption data-position="bottom"></figcaption>
-                    </figure>
-                </div>
+                    </figure>  </div>-->
+                               
                 <div class="widget uib_w_77 d-margins" data-uib="media/text" data-ver="0" id="idEstado">
                     <div class="widget-container left-receptacle"></div>
                     <div class="widget-container right-receptacle"></div>
@@ -280,6 +283,19 @@
                         <p>socket</p>
                     </div>
                 </div>
+                <div class="widget uib_w_83 d-margins" data-uib="media/text" data-ver="0" id="idUsuario">
+                    <div class="widget-container left-receptacle"></div>
+                    <div class="widget-container right-receptacle"></div>
+                    <div>
+                        <p>Usuario</p>
+                    </div>
+                </div>
+                <div class="table-thing with-label widget uib_w_82 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="idIdenficador">identificate</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idIdenficador">
+                </div>
+                <a class="button widget uib_w_81 d-margins" data-uib="app_framework/button" data-ver="1" id="idEnviarIdentificador">Identificate</a>
                 <div class="table-thing with-label widget uib_w_75 d-margins" data-uib="app_framework/input" data-ver="1">
                     <label class="narrow-control label-inline" for="idLat">lat</label>
 

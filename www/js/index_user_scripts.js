@@ -124,6 +124,13 @@
         enviarPosicion();
     });
     
+        /* button  #idEnviarIdentificador */
+    $(document).on("click", "#idEnviarIdentificador", function(evt)
+    {
+        /* your code goes here */ 
+        conectarse();
+    });
+    
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();
