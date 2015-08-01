@@ -12,7 +12,7 @@ var LOGUEAR=(function(){
 	my.loguearUsuario=function(param){
 		$.ajax({
 			type:"POST",
-			url:"http://192.168.195.1:9095/getLogin",
+			url:"http://192.168.195.101:9095/getLogin",
 			data:"data="+JSON.stringify(param),
 			dataType:'text',
             success:function(data){

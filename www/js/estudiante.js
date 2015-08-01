@@ -12,7 +12,7 @@ var ESTUDIANTE=(function(){
             $("#irVERmenu").click();             
                $.ajax({
                  type:"POST",
-                 url:"http://192.168.195.1:9095/getMenuDelDia",
+                 url:"http://192.168.195.101:9095/getMenuDelDia",
                  data:"data="+JSON.stringify(param),
                  dataType:'text',
                  //
@@ -21,8 +21,11 @@ var ESTUDIANTE=(function(){
                  var dato=JSON.parse(data);
                  $("#idMPLista").empty();    
                  navigator.notification.alert(''+dato.dato,function(){},'MENSAGE','ACEPTAR');
-                 $("#idMPLista").append('<li>Desayuno: '+dato.menu.desayuno+'</li>');
-                 $("#idMPLista").append('<li>Almuerzo: '+dato.menu.almuerzo+'</li>');
+                     //recorremos la lista de menu
+                 for(var i=0;i<dato.menu.length;i++){
+                 $("#idMPLista").append('<li>Desayuno: '+dato.menu[i].desayuno+'</li>');
+                 $("#idMPLista").append('<li>Almuerzo: '+dato.menu[i].almuerzo+'</li>');
+                 }
           },
           error:function(data){
           console.log("ERROR "+data);

@@ -1,7 +1,10 @@
-var IPADDRESS="192.168.195.1";
+var IPADDRESS="192.168.195.101";
 var PORT=9095;
 var express=require('express');
 var bodyParser=require('body-parser');
+var mongoose=require('mongoose');
+
+mongoose.connect('mongodb://192.168.195.101/sistemaComedor');
 
 var AllowCroosDomain=function(req,res,next){
 	res.header('Access-Control-Allow-Origin','*');
@@ -17,6 +20,12 @@ app.use(AllowCroosDomain);
 var server=app.listen(PORT,IPADDRESS);
 console.log('Escuchando en:  '+IPADDRESS+':'+PORT);
 //////////////////////////////////////////////////////////////////////////////
+//mongo db
+var Comedor=require('./comedor.js');
+//servicios//
+Comedor.getLogin(app);
+Comedor.getMenuDelDia(app);
+//mongo db
 // SOCKET IO//////////////////
 var CLIENTES=[];
 var io=require('socket.io').listen(server);
@@ -75,6 +84,7 @@ function buscar(data){
 
 /////////////////////socketio///////////////
 //servicios del SistemaComedor//
+/*
 app.post('/getLogin', function(req, res){
   var dato=req.param('data');
   dato=JSON.parse(dato);
@@ -209,4 +219,4 @@ app.post('/getbuscarEstudiante',function(req, res){
     } 
     res.json(msn);
 });
-
+*/
