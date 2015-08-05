@@ -5,7 +5,7 @@ var IDSOCKET_CLIE=null;
 var nombreUsuario=null;
 /*funcion conectarse*/
 function conectarse(){
-	SOCKET=io.connect("http://192.168.195.1:9095");
+	SOCKET=io.connect("http://192.168.56.102:9095");
 	/* funcion que permite conectarse y obteber el idsocket que da node*/
 	SOCKET.on("connect", function(){
 		document.getElementById("idEstado").innerHTML="conectado..";

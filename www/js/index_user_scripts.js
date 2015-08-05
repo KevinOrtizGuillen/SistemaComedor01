@@ -112,7 +112,7 @@
         var almuerzo=$("#idMPAlmuerzo").val();
         var param={};
           param.fecha=fecha;
-          param.dasayuno=desayuno;
+          param.desayuno=desayuno;
           param.almuerzo=almuerzo;
         NUTRICIONISTA.llenarMenu(param);
     });
@@ -124,6 +124,28 @@
         enviarPosicion();
     });
   
+    
+        /* button  #idAceptarCCuenta */
+    $(document).on("click", "#idAceptarCCuenta", function(evt)
+    {
+        /* your code goes here */ 
+        var perfil=$("#idPerfCCuenta").val();
+        var dni=$("#iddniCCuenta").val();
+        var nombres=$("#idNomCCuenta").val();
+        var apellidos=$("#idApelCCuenta").val();
+        var contrasena=$("#idPassCCuenta").val();
+        var codigo=$("#idCodCCuenta").val();
+        var carrera=$("#idCarrCCuenta").val();
+        var param={};
+          param.perfil=perfil;
+          param.dni=dni;
+          param.nombres=nombres;
+          param.apellidos=apellidos;
+          param.contrasena=contrasena;
+          param.codigo=codigo;
+          param.carrera=carrera;
+        NUEVO_USUARIO.crearCuenta(param);
+    });
     
     }
  document.addEventListener("app.Ready", register_event_handlers, false);

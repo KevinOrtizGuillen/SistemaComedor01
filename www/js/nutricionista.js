@@ -5,6 +5,7 @@ var NUTRICIONISTA=(function(){
     $("body").append('<a id="irNLlenarMenu" href="#idPageMenuPreparar"></a>');
     $("body").append('<a id="irNVerRegistro" href="#idPageRegistroEstudiantes"></a>');
     $("body").append('<a id="irNVerEstudiante" href="#idPageVerEstudiantes"></a>');
+    $("body").append('<a id="irVerMenuPrep" href="#idPageMenu"></a>');
     };
     ///////////
     my.irServicios=function(){
@@ -22,12 +23,40 @@ var NUTRICIONISTA=(function(){
             //
             $("#irNVerEstudiante").click();
             conectarse();
+        }else if(opciones==='idNverMenu'){
+             ///////////////////
+            	$("#irVerMenuPrep").click();
+           var param={};
+           param.estado=3;                      
+               $.ajax({
+                 type:"POST",
+                 url:"http://192.168.56.102:9095/getMenuDelDia",
+                 data:"data="+JSON.stringify(param),
+                 dataType:'text',
+                 //
+                 success:function(data){
+                 ///aqui todas
+                 var dato=JSON.parse(data);
+                 $("#idMPLista").empty();    
+                 navigator.notification.alert(''+dato.dato,function(){},'MENSAGE','ACEPTAR');
+                     //recorremos la lista de menu
+                 for(var i=0;i<dato.menu.length;i++){
+                 $("#idMPLista").append('<li>Desayuno: '+dato.menu[i].desayuno+'</li>');
+                 $("#idMPLista").append('<li>Almuerzo: '+dato.menu[i].almuerzo+'</li>');
+                 }
+                  },
+                  error:function(data){
+                  console.log("ERROR "+data);
+                  }
+               });
+           ////
+            ///////////////////////
         }
     };
     my.llenarMenu=function(param){       
         $.ajax({
             type:"POST",
-            url:"http://192.168.195.1:9095/getllenarmenu",
+            url:"http://192.168.56.102:9095/getllenarmenu",
             data:"data="+JSON.stringify(param),
             dataType:'text',
             success:function(data){

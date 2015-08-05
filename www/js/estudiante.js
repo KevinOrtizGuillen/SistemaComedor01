@@ -12,7 +12,7 @@ var ESTUDIANTE=(function(){
             $("#irVERmenu").click();             
                $.ajax({
                  type:"POST",
-                 url:"http://192.168.195.101:9095/getMenuDelDia",
+                 url:"http://192.168.56.102:9095/getMenuDelDia",
                  data:"data="+JSON.stringify(param),
                  dataType:'text',
                  //
@@ -40,14 +40,14 @@ var ESTUDIANTE=(function(){
     my.verRegistroDeEstudiantes=function(){
     $.ajax({
         type:"POST",
-        url:"http://192.168.195.1:9095/getRegistroEstudiantes",
+        url:"http://192.168.56.102:9095/getRegistroEstudiantes",
         data:"data="+JSON.stringify(null),
         success:function(data){
             var dato=JSON.parse(data);
             //
                 $("#idNREstudiantes").empty();
             for(var i=0;i<dato.data.length;i++){
-                $("#idNREstudiantes").append('<li><a>'+dato.data[i]+'</a></li>');
+                $("#idNREstudiantes").append('<li><a>'+dato.data[i].codigo+' '+dato.data[i].nombre+' '+dato.data[i].apellidos+'</a></li>');
             };
         },
         error:function(data){
@@ -58,7 +58,7 @@ var ESTUDIANTE=(function(){
     my.buscarEstudiante=function(param){
       $.ajax({
         type:"POST",
-        url:"http://192.168.195.1:9095/getBuscarEstudiante",
+        url:"http://192.168.56.102:9095/getBuscarEstudiante",
         data:"data="+JSON.stringify(param),
         success:function(data){
             var dato=JSON.parse(data);

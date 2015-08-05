@@ -18,10 +18,10 @@ var opcion=$("#idPerfil").val();
 }
 /////////////////fin de loguerse//////
 ////////////////esta parte es para poder registrarse//////
-function Camporegistrarse(){
+/*function Camporegistrarse(){
   var opcion=$('#idPerfCuenta').val();    
-    var ocultarCodigo=document.getElementById('idCodCCuenta');
-    var ocultarCarrera=document.getElementById('idCarrCCuenta');
+    var ocultarCodigo=document.getElementById('idCodigoCuenta');
+    var ocultarCarrera=document.getElementById('idCarreraCuenta');
   if(opcion==='ESTUDIANTE'){
       ocultarCarrera.style.display='block';
       ocultarCodigo.style.display='block';
@@ -29,4 +29,4 @@ function Camporegistrarse(){
       ocultarCarrera.style.display='none';
       ocultarCodigo.style.display='none';
   }
-}
+}*/

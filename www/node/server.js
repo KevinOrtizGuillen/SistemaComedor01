@@ -1,10 +1,10 @@
-var IPADDRESS="192.168.195.101";
+var IPADDRESS="192.168.56.102";
 var PORT=9095;
 var express=require('express');
 var bodyParser=require('body-parser');
 var mongoose=require('mongoose');
 
-mongoose.connect('mongodb://192.168.195.101/sistemaComedor');
+mongoose.connect('mongodb://192.168.56.102/sistemaComedor');
 
 var AllowCroosDomain=function(req,res,next){
 	res.header('Access-Control-Allow-Origin','*');
@@ -25,6 +25,11 @@ var Comedor=require('./comedor.js');
 //servicios//
 Comedor.getLogin(app);
 Comedor.getMenuDelDia(app);
+Comedor.getBuscarEstudiante(app);
+Comedor.getMarcarConsumo(app);
+Comedor.getRegistroEstudiantes(app);
+Comedor.getLlenarMenu(app);
+Comedor.getRegistrarCuenta(app);
 //mongo db
 // SOCKET IO//////////////////
 var CLIENTES=[];

@@ -14,6 +14,29 @@ var ADMINISTRADOR=(function(){
            /////
        }else if(opciones==='idAMenuPrep'){
        	$("#irVerMenuPrep").click();
+           var param={};
+           param.estado=2;                      
+               $.ajax({
+                 type:"POST",
+                 url:"http://192.168.56.102:9095/getMenuDelDia",
+                 data:"data="+JSON.stringify(param),
+                 dataType:'text',
+                 //
+                 success:function(data){
+                 ///aqui todas
+                 var dato=JSON.parse(data);
+                 $("#idMPLista").empty();    
+                 navigator.notification.alert(''+dato.dato,function(){},'MENSAGE','ACEPTAR');
+                     //recorremos la lista de menu
+                 for(var i=0;i<dato.menu.length;i++){
+                 $("#idMPLista").append('<li>Desayuno: '+dato.menu[i].desayuno+'</li>');
+                 $("#idMPLista").append('<li>Almuerzo: '+dato.menu[i].almuerzo+'</li>');
+                 }
+                  },
+                  error:function(data){
+                  console.log("ERROR "+data);
+                  }
+               });
            ////
        }else if(opciones==='idAverEstudiante'){
         $("#irAverEstudiante").click();
@@ -25,7 +48,7 @@ var ADMINISTRADOR=(function(){
     my.marcarConsumo=function(param){
       $.ajax({
          type:"POST",
-          url:"http://192.168.195.1:9095/getMarcarConsumo",
+          url:"http://192.168.56.102:9095/getMarcarConsumo",
           data:"data="+JSON.stringify(param),
           dataType:'text',
           success:function(data){

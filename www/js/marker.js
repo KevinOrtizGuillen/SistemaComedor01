@@ -10,7 +10,7 @@ function cMarker(map,id,lat,lon){
   		position:new google.maps.LatLng(this.lat,this.lon),
 		map:this.map,
 		title:this.id,
-		icon:'js/vehiculos.gif'
+		icon:'./images/usuario.jpg'//icon:'js/vehiculos.gif'
   	});
 	this.marker.setMap(this.map);
   }//////////////////////////////////////////

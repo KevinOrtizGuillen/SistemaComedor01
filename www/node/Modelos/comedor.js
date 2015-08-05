@@ -2,7 +2,7 @@ var mongoose=require('mongoose');
 
 var schemaConsumo=new mongoose.Schema({
 	servicio:String,
-	fecha:Date
+	fecha:String
 	//hora:int
 });
 
