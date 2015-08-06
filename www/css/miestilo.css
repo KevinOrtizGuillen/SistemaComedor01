@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+		<title>Acerca de mí</title>
+	</head>
+	<body>
+		<img src="http://bit.ly/NnVbxt"/>
+		<p>¡Somos Codecademy! Estamos aquí para ayudarte a aprender a escribir código.</p><br/><br/>
+		<div>
+			<a href="https://www.facebook.com/codecademy">¡Hazte amigo de nosotros en <span>Facebook!</span></a>
+		</div>
+	</body>
+</html>

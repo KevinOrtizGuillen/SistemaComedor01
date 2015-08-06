@@ -38,11 +38,11 @@ var NUTRICIONISTA=(function(){
                  ///aqui todas
                  var dato=JSON.parse(data);
                  $("#idMPLista").empty();    
-                 navigator.notification.alert(''+dato.dato,function(){},'MENSAGE','ACEPTAR');
+                 //navigator.notification.alert(''+dato.dato,function(){},'MENSAGE','ACEPTAR');
                      //recorremos la lista de menu
                  for(var i=0;i<dato.menu.length;i++){
-                 $("#idMPLista").append('<li>Desayuno: '+dato.menu[i].desayuno+'</li>');
-                 $("#idMPLista").append('<li>Almuerzo: '+dato.menu[i].almuerzo+'</li>');
+                 $("#idMPLista").append('<li>Desayuno: '+dato.menu[i].desayuno+' Fecha: '+dato.menu[i].fecha+'</li>');
+                 $("#idMPLista").append('<li>Almuerzo: '+dato.menu[i].almuerzo+' Fecha: '+dato.menu[i].fecha+'</li>');
                  }
                   },
                   error:function(data){

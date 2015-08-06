@@ -3,7 +3,7 @@ var ESTUDIANTE=(function(){
    //////////////
     my.crearEnlace=function(){
     $("body").append('<a id="irVERmenu" href="#idPageMenu"></a>');
-    $("body").append('<a id="irVERmapa" href="#idPageVerEstudiantes"></a>');
+    $("body").append('<a id="irVERmapa" href="#idPageVerEstudiantes"></a>');        
     };
     /////////////
     my.irServicios=function(param){
@@ -47,7 +47,7 @@ var ESTUDIANTE=(function(){
             //
                 $("#idNREstudiantes").empty();
             for(var i=0;i<dato.data.length;i++){
-                $("#idNREstudiantes").append('<li><a>'+dato.data[i].codigo+' '+dato.data[i].nombre+' '+dato.data[i].apellidos+'</a></li>');
+            $("#idNREstudiantes").append('<li><a>'+dato.data[i].codigo+' '+dato.data[i].nombre+' '+dato.data[i].apellidos+'</a></li>');
             };
         },
         error:function(data){
@@ -74,6 +74,6 @@ var ESTUDIANTE=(function(){
         }        
       }); 
     }; 
-   //////////////
+    //////////////
    return my;
 }());

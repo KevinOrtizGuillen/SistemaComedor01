@@ -9,8 +9,7 @@
     LOGUEAR.crearEnlace();   
     ESTUDIANTE.crearEnlace();
     ADMINISTRADOR.crearEnlaces();
-    NUTRICIONISTA.crearEnlace();
-    
+    NUTRICIONISTA.crearEnlace();        
      /* button  #idAceptar */
     $(document).on("click", "#idAceptar", function(evt)
     {
@@ -78,31 +77,32 @@
         /* your code goes here */ 
         var date=new Date();
         var fecha=date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();        
-        var hora=date.getHours()+':'+date.getMinutes();
-        alert(fecha+' hora '+hora);
+        var hora=date.getHours()+':'+date.getMinutes();        
         var codigo=$("#idMCCodigo").val();
         var param={};            
             param.fecha=fecha;
              param.codigo=codigo;
             param.hora=hora;
+        param.turno="Desayuno";
         ADMINISTRADOR.marcarConsumo(param);
         
     });
-    
-        /* button  #idMCAlmuerzo */
-    $(document).on("click", "#idMCCaballero", function(evt)
+         /* button  #idMCAlmuerzo */
+    $(document).on("click", "#idMCAlmuerzo", function(evt)
     {
         /* your code goes here */ 
-        var date=new Date();        
+        var date=new Date();
+        var fecha=date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();        
+        var hora=date.getHours()+':'+date.getMinutes();     
         var codigo=$("#idMCCodigo").val();
         var param={};            
             param.fecha=fecha;
             param.codigo=codigo;
             param.hora=hora;
+            param.turno='Almuerzo';
         ADMINISTRADOR.marcarConsumo(param);
-        
-    });
-    
+    });    
+       
         /* button  #idMPAgregar */
     $(document).on("click", "#idMPAgregar", function(evt)
     {
@@ -145,7 +145,7 @@
           param.codigo=codigo;
           param.carrera=carrera;
         NUEVO_USUARIO.crearCuenta(param);
-    });
+    });   
     
     }
  document.addEventListener("app.Ready", register_event_handlers, false);

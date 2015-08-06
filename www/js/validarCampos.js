@@ -7,12 +7,12 @@ var opcion=$("#idPerfil").val();
     var cambiartext=document.getElementById('labelCodigo');
     cambiartext.innerHTML="Codigo";
     var cajaTexto=document.getElementById('idCodigo');
-    cajaTexto.value='1002620122';
+    cajaTexto.value='';
     }else{    
      var cambiartext=document.getElementById('labelCodigo');
     cambiartext.innerHTML="DNI";
-     var cajaTexto=document.getElementById('idCodigo');
-    cajaTexto.value='71861477';
+    var cajaTexto=document.getElementById('idCodigo');
+    cajaTexto.value='';
     }
    
 }

@@ -106,7 +106,7 @@ module.exports.getVerMenuD=function(callback){
                         callback(-2,"nohay desayuno");
                 }else{
                    menu=data[0].menu;
-                   //en este caso ya no realizamos busquedas sino le devolvemos toda la lista del munu que existe
+                   //en este caso ya no realizamos busquedas sino le devolvemos toda la lista del menu  que existe
                 }
            callback(menu,null);
           }
@@ -173,22 +173,35 @@ module.exports.getMarcarComsumo=function(codigo,turno,fecha,callback){
                         callback(-1,err);
                 }else{
                         if(data.length===0){
-                                callback(-2,"no hay alumno");
-                                console.log("algo paso");
+                                callback(-2,"no hay alumno");                                
                         }else{
-                                console.log("todo ok1");
                                 var datos=data[0];
                                 var respuesta={};
                                 var n=datos.estudiantes.length;
                                 for(var i=0;i<n;i++){
                                   if(datos.estudiantes[i].codigo===codigo){
-                                        console.log(datos.estudiantes[i]);                                        
-                                        //// 
+                                        var n2=datos.estudiantes[i].consumo.length;
+                                        var existe=0;
+                                        for(var i2=0;i2<n2;i2++){
+                                          if(datos.estudiantes[i].consumo[i2].fecha===fecha &&datos.estudiantes[i].consumo[i2].servicio===turno){
+                                            existe=1;
+                                            break;
+                                          }else{
+                                            existe=0;
+                                          }
+                                        }
+                                        ////si esque el estudiante ya consumio entonces existe=1 por lo que validamos con un if
+                                        if(existe===0){
                                           datos.estudiantes[i].consumo.push({servicio:turno,fecha:fecha});
                                              datos.save();                                        
                                         ////
                                              respuesta.estado=1;
-                                             respuesta.dato="Se atendio correctamente";                                      
+                                             respuesta.dato="Se atendio correctamente"; 
+                                           } else{
+                                             respuesta.estado=0;
+                                             respuesta.dato="No puede hacer doble Servicio"; 
+                                           }
+                                                                               
                                       break;
                                   }
                                 }
@@ -222,7 +235,7 @@ module.exports.getRegistroDeEstudiantes=function(callback){
       ComedorDB.find({codigo:'STOT'},function(err,data){
           if(err){
             console.log(err);
-            callback(+1,err);
+            callback(-1,err);
           }else{
                if(data.length===0){
                 callback(-2,"no se puede mostrar regitro de estudiante");

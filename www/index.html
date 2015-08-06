@@ -116,6 +116,9 @@
         <header class="wrapping-col wrap-element uib_w_63 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-8"><a class="button backButton">Back</a>
             <h1>Registro de Estudiantes</h1>
         </header>
+        <header class="wrapping-col wrap-element uib_w_84 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-9"><a class="button backButton">Back</a>
+            <h1>Lista de Consumos</h1>
+        </header>
         <div class="uwrap" id="content">
             <div class="upage vertical-col panel" id="mainpage" data-header="af-header-10" data-footer="af-footer-10">
                 <div class="table-thing with-label widget uib_w_5 d-margins" data-uib="app_framework/select" data-ver="1">
@@ -129,11 +132,12 @@
                 <div class="table-thing with-label widget uib_w_3 d-margins" data-uib="app_framework/input" data-ver="1">
                     <label class="narrow-control label-inline" for="idCodigo" id="labelCodigo">Codigo</label>
 
-                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idCodigo" value="1002620122">
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idCodigo">
                 </div>
                 <div class="table-thing with-label widget uib_w_4 d-margins" data-uib="app_framework/input" data-ver="1">
                     <label class="narrow-control label-inline" for="idPass">Contraseña</label>
-                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idPass" value="kevin">
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="password" id="idPass">
                 </div><a class="button widget uib_w_6 d-margins" data-uib="app_framework/button" data-ver="1" id="idAceptar">Aceptar</a>
                 <h4>Registrese </h4><a href="#idPageCrearCuenta">Aqui</a>
 
@@ -162,7 +166,8 @@
                 </div>
                 <div class="table-thing with-label widget uib_w_13 d-margins" data-uib="app_framework/input" data-ver="1">
                     <label class="narrow-control label-inline" for="idPassCCuenta">Contraseña</label>
-                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idPassCCuenta">
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="password" id="idPassCCuenta">
                 </div>
                 <div class="table-thing with-label widget uib_w_14 d-margins" data-uib="app_framework/input" data-ver="1">
                     <label class="narrow-control label-inline" for="idCodCCuenta">Codigo</label>
@@ -224,7 +229,7 @@
                     </li>
                 </ul>
                 <div class="button-grouped flex widget uib_w_35 d-margins" data-uib="app_framework/button_group" data-ver="1"><a class="button widget uib_w_36" data-uib="app_framework/button" data-ver="1" style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(102, 102, 102); border-top-left-radius: 6px; border-bottom-left-radius: 6px;"
-                    id="idMCDesayuno">Desayuno</a><a class="button widget uib_w_37" data-uib="app_framework/button" data-ver="1" id="idMCCaballero">H. Caballeros</a>
+                    id="idMCDesayuno">Desayuno</a><a class="button widget uib_w_37" data-uib="app_framework/button" data-ver="1" id="idMCAlmuerzo">Almuerzo</a>
                 </div>
             </div>
             <div class="upage vertical-col panel" id="idPageNutricionista" data-header="af-header-4" data-footer="af-footer-4">
@@ -299,17 +304,6 @@ class="widget uib_w_70 scale-image d-margins" data-uib="media/img" data-ver="0" 
                     </div>
                 </div>
 
-                <div class="table-thing with-label widget uib_w_75 d-margins" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-inline" for="idLat">lat</label>
-
-                    <input class="wide-control" placeholder="Placeholder Text" type="text" value="51.00541" id="idLat">
-                </div>
-                <div class="table-thing with-label widget uib_w_76 d-margins" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-inline" for="idLon">Input</label>
-
-                    <input class="wide-control" placeholder="Placeholder Text" type="text" value="-1.15422" id="idLon">
-                </div>
-                <a onclick="enviarPosicion();" class="button widget uib_w_79 d-margins" data-uib="app_framework/button" data-ver="1" id="idMenviar">Enviar</a>
             </div>
             <div class="upage vertical-col panel" id="idPageMenu" data-header="af-header-7" data-footer="af-footer-7">
                 <ul class="list widget uib_w_59 d-margins" data-uib="app_framework/listview" data-ver="1" id="idMPLista">
@@ -330,7 +324,9 @@ class="widget uib_w_70 scale-image d-margins" data-uib="media/img" data-ver="0" 
                     </li>
                 </ul>
             </div>
+
         </div>
+        <footer class="wrap-element uib_w_85" data-uib="app_framework/footer" data-ver="1" id="af-footer-9"></footer>
         <footer class="wrap-element uib_w_64" data-uib="app_framework/footer" data-ver="1" id="af-footer-8"></footer>
         <footer class="wrap-element uib_w_58" data-uib="app_framework/footer" data-ver="1" id="af-footer-7"></footer>
         <footer class="wrap-element uib_w_52" data-uib="app_framework/footer" data-ver="1" id="af-footer-6"></footer>

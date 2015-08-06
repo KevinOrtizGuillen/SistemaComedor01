@@ -34,7 +34,7 @@ iniciarMapa();
 que el monitor oprincipal*/
 SOCKET.on("monitoriarClientes",function(data){	
 	 console.log(data);
-	alert('posicion: '+data.lon);
+	//alert('posicion: '+data.lon);
 	   var index=buscar(data);
 	   if(index===-1){
 	   	nuevoPosicion(data);
@@ -45,30 +45,41 @@ SOCKET.on("monitoriarClientes",function(data){
 /*cuando un cliente monitoreado se desconecta*/
 SOCKET.on("MonitorCDesconectado",function(data){
 	console.log(data);
-	alert('usuario desconectado'+data.id);
+	//alert('usuario desconectado'+data.id);
 	var index=buscar(data);
 	if(index!==-1){
 		removerPosicion(index);
 	}
 });
-/*empex¿zamos a inicializar la mapa*/
-
+    /*la funcion enviarposicion lo cargamos dentro de la funcion conectar*/
+    setInterval(function () {
+     getLocation();
+	}, 3000);
 }
+/*creamos una funcion para capturar la geolocalizacion*/
+function getLocation() {   
+        navigator.geolocation.watchPosition(showPosition);   
+}
+function showPosition(position) {
+    enviarPosicion(position.coords.latitude,position.coords.longitude);
+   // alert('lat: '+position.coords.latitude+' lon: '+position.coords.longitude);
+}
+/*******************************************************/
 /*AQUI DAMOS LOS SERVICIOS QUE NO PERMITIRA ENVIAR DATOS A TODOS LOS CLIENTES*/
-function enviarPosicion(){
+function enviarPosicion(latitud,longitud){
 	var data={};
-		data.lat=document.getElementById("idLat").value;//51.508742;
-		data.lon=document.getElementById("idLon").value;//-0.120850;
+		data.lat=latitud;//document.getElementById("idLat").value;//51.508742;
+		data.lon=longitud;//document.getElementById("idLon").value;//-0.120850;
 		data.id=nombreUsuario;
 		//SOCKET.broadcast.emit("posicionCliente",data);
 		SOCKET.emit("posicionCliente",data);
 
-		alert("ENVIADO");
+		//alert("ENVIADO");
 }
 /*mostramos la mapa*/
  function iniciarMapa(){
 		var mapProp = {
-		    center:new google.maps.LatLng(51.508742,-0.120850),
+		    center:new google.maps.LatLng(-13.6589,-73.3515),
 		    zoom:10,
 		    mapTypeId:google.maps.MapTypeId.ROADMAP
 		  };
